@@ -1,0 +1,15 @@
+.container {
+  max-width: 1200px;
+  padding: 60px 0 120px 0;
+  margin: 0 auto;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+p {
+  font-style: normal;
+  font-size: 18px;
+  line-height: 130%;
+  color: #071739;
+}

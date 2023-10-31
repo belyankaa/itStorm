@@ -1,0 +1,9 @@
+<div class="article-cart">
+  <div class="article-cart__image">
+    <img src="../../../../assets/images/articles/{{product.image}}" alt="">
+  </div>
+  <div class="article-cart__type">{{product.category}}</div>
+  <div class="article-cart__title">{{product.title}}</div>
+  <div class="article-cart__text">{{product.description}}</div>
+  <a [routerLink]="'/articles/' + product.url" class="article-cart__link">Читать дальше</a>
+</div>

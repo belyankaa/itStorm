@@ -1,0 +1,52 @@
+<section class="signup" [formGroup]="signupForm">
+  <div class="container">
+    <div class="auth__form">
+      <div class="auth__form-title">Регистрация на сайте</div>
+      <div class="auth__inputs">
+        <div class="auth__input">
+          <input class="input" type="text" placeholder="Ваше имя" formControlName="name"
+                 [ngStyle]="{'border-color': signupForm.get('name')?.invalid &&
+                 (signupForm.get('name')?.touched || signupForm.get('name')?.dirty) ? '#DC0D0DFF' : ''}">
+          <div class="error" *ngIf="signupForm.get('name')?.invalid &&
+                 (signupForm.get('name')?.touched || signupForm.get('name')?.dirty)">
+            Может содержать русские буквы и пробелы. Каждое новое слово - с большой буквы
+          </div>
+        </div>
+        <div class="auth__input">
+          <input class="input" type="text" placeholder="Электронная почта" formControlName="email"
+                 [ngStyle]="{'border-color': signupForm.get('email')?.invalid &&
+                 (signupForm.get('email')?.touched || signupForm.get('email')?.dirty) ? '#DC0D0DFF' : ''}">
+        </div>
+        <div class="auth__input">
+          <input class="input" type="password" placeholder="Пароль" formControlName="password"
+                 [ngStyle]="{'border-color': signupForm.get('password')?.invalid &&
+                 (signupForm.get('password')?.touched || signupForm.get('password')?.dirty) ? '#DC0D0DFF' : ''}">
+          <div class="error" *ngIf="signupForm.get('password')?.invalid &&
+                 (signupForm.get('password')?.touched || signupForm.get('password')?.dirty)">
+            Пароль должен быть не менее 8 символов, содержать как минимум 1 букву в верхнем регистре и как минимум 1 цифру
+          </div>
+        </div>
+        <div class="auth__checkbox">
+          <input type="checkbox" id="agree" formControlName="agreement"
+                 [ngStyle]="{'border-color': signupForm.get('agreement')?.invalid &&
+                 (signupForm.get('agreement')?.touched || signupForm.get('agreement')?.dirty) ? '#DC0D0DFF' : ''}">
+          <div>
+            <label for="agree">
+              Я принимаю <a href="assets/user-policy/user-policy.html" target="_blank">условия пользовательского соглашения</a> и даю <a href="assets/user-policy/user-policy.html#agree" target="_blank">согласие на обработку персональных
+              данных.</a>
+            </label>
+          </div>
+        </div>
+        <div class="auth__button">
+          <button class="button" [disabled]="signupForm.invalid" (click)="signUp()">Зарегистрироваться</button>
+        </div>
+        <div class="auth__link">
+          Уже есть аккаунт? <a routerLink="/login">Войдите</a>
+        </div>
+      </div>
+    </div>
+    <div class="auth__form__image">
+      <img src="../../../../assets/images/pages/signup.png" alt="login">
+    </div>
+  </div>
+</section>

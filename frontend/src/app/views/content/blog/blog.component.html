@@ -1,0 +1,94 @@
+<section class="blog">
+  <div class="container">
+    <div class="blog__title">Блог</div>
+    <div class="blog__sorting">
+      <div class="blog__sorting__items">
+        <div class="blog__sorting__item" *ngFor="let category of activeCategoriesNames">
+          <div>{{category.name}}</div>
+          <div (click)="deleteParam(category.url)">
+            <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_5676_586)">
+                <line x1="1.93553" y1="3.15002" x2="13.9563" y2="15.1708" stroke="#709FDC" stroke-linecap="round"/>
+                <line x1="13.9236" y1="3.12984" x2="1.90278" y2="15.1507" stroke="#709FDC" stroke-linecap="round"/>
+              </g>
+              <defs>
+                <clipPath id="clip0_5676_586">
+                  <rect width="16" height="16" fill="white" transform="translate(0 0.5)"/>
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="blog__sorting__button" (click)="toggleFilter()" [class.open]="openFilter">
+        <div>Фильтр</div>
+        <div>
+          <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M10 14.5C9.41668 14.5 8.83335 14.275 8.39168 13.8334L2.95835 8.40003C2.71668 8.15837 2.71668 7.75837 2.95835 7.5167C3.20002 7.27503 3.60002 7.27503 3.84168 7.5167L9.27502 12.95C9.67502 13.35 10.325 13.35 10.725 12.95L16.1583 7.5167C16.4 7.27503 16.8 7.27503 17.0417 7.5167C17.2833 7.75837 17.2833 8.15837 17.0417 8.40003L11.6083 13.8334C11.1667 14.275 10.5833 14.5 10 14.5Z"
+              fill="#071739"/>
+          </svg>
+        </div>
+      </div>
+      <div class="filter__button__items" *ngIf="openFilter">
+        <div class="filter__button__item" *ngFor="let category of categories" (click)="changeParam(category.url)">
+          <div class="filter__button__item__name" [class.active]="category.active">{{category.name}}</div>
+          <div class="filter__button__item__button" *ngIf="!category.active">
+            <svg width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11.12 4.904H6.656V0.511999H5.144V4.904H0.68V6.32H5.144V10.688H6.656V6.32H11.12V4.904Z"
+                    fill="#BEBEBE"/>
+            </svg>
+          </div>
+          <div class="filter__button__item__button" (click)="changeParam(category.url)" *ngIf="category.active">
+            <svg width="7" height="3" viewBox="0 0 7 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.44 2.24H6.728V0.752H0.44V2.24Z" fill="#071739"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="blog__articles">
+      <div class="blog__articles__item" *ngFor="let article of articles">
+        <app-article-card [product]="article"></app-article-card>
+      </div>
+    </div>
+    <div class="blog__articles__pages" *ngIf="pages.length > 1">
+      <div class="blog__articles__pages__back navigation" *ngIf="startPages">
+        <svg width="10" height="19" viewBox="0 0 10 19" fill="red" xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink">
+          <rect x="10" width="18.6667" height="10" transform="rotate(90 10 0)" fill="url(#pattern0)"/>
+          <defs>
+            <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+              <use xlink:href="#image0_5834_636" transform="matrix(0.00284091 0 0 0.00530303 0 -0.00909089)"/>
+            </pattern>
+            <image id="image0_5834_636" width="352" height="192"
+                   xlink:href="data:image/png;base64,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"/>
+          </defs>
+        </svg>
+      </div>
+      <div class="blog__articles__pages__back navigation active" (click)="prevPage()" *ngIf="!startPages">
+        <img src="../../../../assets/images/prev.png" alt="">
+      </div>
+      <div class="blog__articles__pages__items" *ngFor="let page of pages">
+        <div class="blog__articles__pages__item" (click)="changePage((page + 1))" [class.active]="activePage === page + 1">{{page + 1}}</div>
+      </div>
+      <div class="blog__articles__pages__next navigation" *ngIf="endPages">
+        <svg width="10" height="19" viewBox="0 0 10 19" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <rect y="18.6666" width="18.6667" height="10" transform="rotate(-90 0 18.6666)" fill="url(#pattern0)"/>
+          <defs>
+            <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+              <use xlink:href="#image0_202_831" transform="matrix(0.00284091 0 0 0.00530303 0 -0.00909089)"/>
+            </pattern>
+            <image id="image0_202_831" width="352" height="192" xlink:href="data:image/png;base64,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"/>
+          </defs>
+        </svg>
+
+      </div>
+      <div class="blog__articles__pages__next navigation active" (click)="nextPage()" *ngIf="!endPages">
+        <img src="../../../../assets/images/next.png" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+

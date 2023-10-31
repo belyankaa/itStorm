@@ -1,0 +1,303 @@
+@import "../../../../assets/styles/mixins";
+
+.article {
+  padding-top: 80px;
+  padding-bottom: 120px;
+
+  .container {
+
+    .article__peaces {
+      margin-bottom: 60px;
+      font-weight: 400;
+      font-size: 16px;
+      color: #B9D5FD;
+
+      .article__peaces__blog a {
+        font-weight: 400;
+        font-size: 16px;
+        color: #B9D5FD;
+      }
+
+      span {
+        margin-right: 8px;
+
+        &.article__peaces__title {
+          font-weight: 500;
+          font-size: 16px;
+          color: #709FDC;
+        }
+      }
+    }
+
+    .article__header__info {
+      margin-bottom: 60px;
+      display: flex;
+      justify-content: space-between;
+
+
+      .article__header__info__text {
+        max-width: 607px;
+
+        .article__header__info__text__title {
+          @include headLora38;
+          margin-bottom: 40px;
+        }
+
+        .article__header__info__text__main {
+          font-style: normal;
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 130%;
+          color: #709FDC;
+        }
+      }
+
+      .article__header__info__image {
+        max-width: 527px;
+        max-height: 320px;
+
+        img {
+          user-select: none;
+          border-radius: 5px;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    .article__content {
+      display: flex;
+      justify-content: space-between;
+
+      .article__main {
+        max-width: 820px;
+
+        .article__main-content {
+          margin-bottom: 60px;
+
+          &::ng-deep {
+            h3 {
+              @include headLora38;
+              line-height: 26px;
+              font-size: 20px;
+            }
+
+            h1 {
+              @include headLora38;
+              line-height: 28px;
+              font-size: 24px;
+            }
+
+            p {
+              font-weight: 400;
+              font-size: 14px;
+              line-height: 130%;
+              color: #071739;
+            }
+
+            b {
+              font-weight: 500;
+            }
+
+            ul {
+              color: #071739;
+            }
+          }
+        }
+
+        .article__you-like {
+          margin-bottom: 60px;
+          display: flex;
+          align-items: center;
+
+          .article__you-like__text {
+            margin-bottom: 5px;
+            margin-right: 20px;
+            font-weight: 500;
+            font-size: 14px;
+            color: #709FDC;
+          }
+
+          .article__you-like__links {
+
+            span {
+              margin-right: 13px;
+            }
+          }
+        }
+
+        .comments {
+
+          .comments__title {
+            @include headLora38;
+          }
+
+          .comments__title__please-login {
+            margin-top: 20px;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 130%;
+            color: #071739;
+
+            a {
+              color: #709FDC;
+              text-decoration: underline;
+            }
+          }
+
+          .no-yet {
+            margin-top: 20px;
+
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            color: #071739;
+          }
+
+          .input {
+            margin-top: 40px;
+            width: 818px;
+            height: 248px;
+            margin-bottom: 20px;
+            resize: none;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            padding: 20px;
+          }
+
+          .button {
+            width: 422px;
+            height: 51px;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            color: #FFFFFF;
+          }
+
+
+          .comments__items {
+            margin-top: 60px;
+
+            .comments__item {
+              margin-bottom: 40px;
+
+              .comments__item__info {
+                display: flex;
+                margin-bottom: 15px;
+
+                .comments__item__info__profile {
+                  margin-right: 26px;
+
+                  img {
+                    width: 60px;
+                    height: 60px;
+                    box-sizing: border-box;
+                    background-color: #B9D5FD;
+                    border-radius: 50%;
+                    border: 2px solid #709FDC;
+                  }
+
+                }
+
+                .comments__item__info__about {
+                  .name {
+                    font-weight: 600;
+                    font-size: 18px;
+                    line-height: 130%;
+                    color: #709FDC;
+                    margin-bottom: 10px;
+                  }
+
+                  .date {
+                    font-weight: 600;
+                    font-size: 14px;
+                    line-height: 130%;
+                    color: #BEBEBE;
+                  }
+                }
+              }
+
+
+              .comments__item__text {
+                width: 854px;
+                white-space: normal;
+              }
+
+              .comments__item__actions {
+                margin-top: 39px;
+                display: flex;
+
+                .action {
+                  box-sizing: border-box;
+                  height: 24px;
+                  cursor: pointer;
+                  margin-right: 15px;
+                  display: flex;
+
+                  .count {
+                    line-height: 25px;
+                    box-sizing: border-box;
+                    height: 24px;
+                    margin-right: 3px;
+                    font-weight: 600;
+                    font-size: 14px;
+                    color: #071739;
+
+                    &.active {
+                      color: #709FDC;
+                    }
+                  }
+
+                  .image {
+                    box-sizing: border-box;
+                    height: 24px;
+                  }
+
+                  &:last-child {
+                    margin-right: 0;
+                  }
+                }
+              }
+
+              &:last-child {
+                margin-bottom: 0;
+              }
+            }
+
+            .comments__more {
+              cursor: pointer;
+              display: flex;
+              align-items: center;
+              margin-top: 60px;
+              font-weight: 500;
+              font-size: 20px;
+              color: #709FDC;
+
+              div:last-child {
+                margin-left: 10px;
+                margin-top: 6px;
+              }
+            }
+          }
+        }
+      }
+
+      .article__extra {
+
+        .article__extra__title {
+          @include headLora38;
+          font-size: 26px;
+          margin-bottom: 20px;
+        }
+
+        .article__extra__item {
+          margin-bottom: 60px;
+        }
+      }
+
+    }
+  }
+}
+
+

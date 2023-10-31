@@ -1,0 +1,198 @@
+@import "../../../../assets/styles/mixins";
+
+.blog {
+  padding-top: 60px;
+  padding-bottom: 120px;
+
+  .container {
+
+    .blog__title {
+      @include headLora38;
+      margin-bottom: 45px;
+    }
+
+    .blog__sorting {
+      position: relative;
+      align-items: baseline;
+      display: flex;
+      justify-content: space-between;
+
+      .blog__sorting__items {
+        max-width: 950px;
+        display: flex;
+        flex-wrap: wrap;
+
+        .blog__sorting__item {
+          margin-right: 10px;
+          margin-bottom: 6px;
+          border: 2px solid #709FDC;
+          border-radius: 5px;
+          display: flex;
+          align-items: center;
+          box-sizing: border-box;
+          padding: 8px 20px;
+          font-weight: 400;
+          font-size: 16px;
+          color: #709FDC;
+
+          div {
+
+            &:last-child {
+              cursor: pointer;
+              margin-left: 8px;
+              margin-bottom: -4px;
+            }
+          }
+        }
+      }
+
+      .blog__sorting__button {
+        user-select: none;
+        box-sizing: border-box;
+        align-items: center;
+        display: flex;
+        width: 150px;
+        height: 45px;
+
+        div {
+          &:first-child {
+            cursor: pointer;
+            margin-right: 10px;
+            width: 120px;
+            height: 21px;
+            font-weight: 400;
+            font-size: 16px;
+            color: #071739;
+          }
+
+          &:nth-child(2) {
+            margin-bottom: -5px;
+          }
+        }
+
+        &.open {
+          border-radius: 5px 5px 0 0;
+          justify-content: space-between;
+          padding: 12px 23px;
+          width: 257px;
+          background-color: #B9D5FD;
+        }
+      }
+
+      .filter__button__items {
+        user-select: none;
+        padding: 12px 23px;
+        z-index: 5;
+        top: 45px;
+        right: 0;
+        width: 257px;
+        position: absolute;
+        box-sizing: border-box;
+        background: #FFFFFF;
+        border: 2px solid #B9D5FD;
+        border-radius: 0 0 5px 5px;
+
+
+        .filter__button__item {
+          cursor: pointer;
+          margin-bottom: 14px;
+          box-sizing: border-box;
+          height: 31px;
+          align-items: center;
+          width: 211px;
+          display: flex;
+          justify-content: space-between;
+
+          .filter__button__item__name {
+            width: 190px;
+            margin-right: 8px;
+            font-weight: 400;
+            font-size: 16px;
+            color: #BEBEBE;
+
+            &.active {
+              color: #071739;
+            }
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+
+          .filter__button__item__button {
+            text-align: center;
+            width: 13px;
+          }
+        }
+      }
+    }
+
+    .blog__articles {
+      margin-top: 34px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-wrap: wrap;
+
+      .blog__articles__item {
+        margin-right: 24px;
+        margin-bottom: 40px;
+
+        &:nth-child(4n) {
+          margin-right: 0;
+        }
+      }
+    }
+
+    .blog__articles__pages {
+      user-select: none;
+      margin-top: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .navigation {
+        margin-top: 2px;
+
+        &.active {
+          margin-bottom: 5px;
+          cursor: pointer;
+        }
+
+        &.blog__articles__pages__back {
+          margin-right: 40px;
+
+        }
+
+        &.blog__articles__pages__next {
+          margin-left: 40px;
+        }
+      }
+
+      .blog__articles__pages__items {
+        align-items: center;
+        display: flex;
+        font-weight: 400;
+        font-size: 20px;
+        text-align: center;
+        color: #071739;
+
+        .blog__articles__pages__item {
+          cursor: pointer;
+          box-sizing: border-box;
+          padding: 12px 10px;
+          width: 32px;
+          height: 46px;
+          margin-right: 20px;
+
+          &.active {
+            color: #B9D5FD;
+          }
+
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+}
